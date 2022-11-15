@@ -1,0 +1,43 @@
+ERRORI LOGICI
+    Si verificano quando :
+        Assegnazione di un valore non corretto a una variabile.
+        
+        Ordine non corretto in cui vengono scritte righe o blocchi di codice.
+
+         Gli errori logici sono anche più difficili da trovare e correggere perché il codice non è sbagliato;
+         Semplicemente non fa quello che vuoi che faccia!
+
+
+GESTIRE GLI ERRORI DI RUNTIME
+
+        li errori di runtime sono leggermente diversi. Tendono a verificarsi quando accade qualcosa di imprevisto nell'applicazione.
+        Questo è spesso qualcosa associato a risorse esterne (connessioni di rete, dispositivi fisici, ecc.) o input / errori umani.
+
+        Ma ci sono situazioni in cui sai in anticipo che questo tipo di errore è probabile che si verifichi.
+        In queste situazioni, è possibile fornire codicedi gestione degli errori.
+        In questo modo, un errore non arresterà in modo anomalo il programma e può essere corretto.
+
+
+
+        Un modo per affrontare potenziali errori è utilizzare una
+        dichiarazione / verificare la validità dei dati:
+        if else
+                creo e utilizzo delle funzioni che verificano se ci sono i dati (dataExists) e se sono validi (dataIsValid)
+
+                if (dataExists && dataIsValid) {
+                        // utiliser les données ici
+                } else {
+                        // gérer l'erreur ici
+                }
+
+        È inoltre possibile utilizzare i blocchi per provare il codice che può potenzialmente restituire un errore e
+        rilevare (rilevare) eventuali errori che si sono verificati:
+        try catch
+
+                try {
+                        // code susceptible à l'erreur ici
+                } catch (error) {
+                        // réaction aux erreurs ici
+                }
+
+

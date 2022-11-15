@@ -1,0 +1,134 @@
+
+IF ELSE
+
+        if (myBoolean) {
+            // reazione alla valore del boleano se è vero
+        } else {
+            // reazione alla valore del boleano se è falso
+        }
+
+----------------------------------------------------------------------------------
+IF ELSE IF ELSE ...
+
+        if (firstUser.accountLevel === 'normal' ) {
+                console.log('You have a normal account!');
+        } else if (firstUser.accountLevel === 'premium' ) {
+                console.log('You have a premium account!');
+        } else if (firstUser.accountLevel === 'mega-premium' ) {
+                console.log('You have a mega premium account!');
+        } else {
+                console.log('Unknown account type!');
+        }
+
+
+
+----------------------------------------------------------------------------------
+SWITCH
+
+        switch ( user.accountLevel) {
+            case 'normal':
+                  console.log('You have a normal account!');
+
+            break;
+
+            case 'premium':
+                  console.log('You have a premium account!');
+
+            break;
+
+            case 'mega-premium':
+                  console.log('You have a mega premium account!');
+            break;
+
+            default:
+                  console.log('Unknown account type!');
+
+        }
+
+--------------------------------------------------------------------------------------
+FOR
+            const numberOfPassengers = 10;
+            for (let i = 0; i < numberOfPassengers; i++) {
+               console.log("Passeggero n " + i + " imbarcato!");
+            }
+            console.log("Imbrarcati tutti i passeggeri!");
+
+----------------------------------------------------------------------------------------
+FOR... OF
+
+            In molti casi, avrai una tavola e dovrai attraversarla, per fare qualcosa su ogni elemento.
+            Questo può essere l'aggiornamento dei prezzi su un menu, l'elaborazione dei dati da un database
+            o l'imbarco dei passeggeri in ordine.
+
+            con il for normale ad esempio potrei contare i numeri di passeggeri in questo modo:
+
+                const passengers = [
+                    "Will Alexander",
+                    "Sarah Kate'",
+                    "Audrey Simon",
+                    "Tao Perkington"
+                ]
+
+                for (let i in passengers) {
+                   console.log("Embarquement du passager " + passengers[i]);
+                }
+
+    Per i casi in cui l'indice preciso di un elemento non è necessario durante l'iterazione,
+     è possibile utilizzare un ciclo:for… of
+
+             const passengers = [
+                 "Will Alexander",
+                 "Sarah Kate",
+                 "Audrey Simon",
+                 "Tao Perkington"
+             ]
+
+             for (let passenger of passengers) {
+                console.log("Embarquement du passager " + passenger);
+             }
+
+     Questo produce esattamente lo stesso risultato, ma in un modo più leggibile, perché non devi preoccuparti di indizi e tabelle:
+     ricevi semplicemente ogni elemento in ordine.
+
+     Ciò è ancora più utile se l'array è un po' più complesso e contiene, ad esempio, OGGETTI:
+
+            const passengers = [
+                {
+                    name: "Will Alexander",
+                    ticketNumber: 209542
+                },
+
+                {
+                    name: "Sarah Kate",
+                    ticketNumber: 169336
+                },
+
+                {
+                    name: "Audrey Simon",
+                    ticketNumber: 779042
+                },
+
+                {
+                    name: "Tao Perkington",
+                    ticketNumber: 703911
+                }
+            ]
+
+            for (let passenger of passengers) {
+               console.log('Embarquement du passager ' + passenger.name + ' avec le ticket numéro ' + passenger.ticketNumber);
+            }
+
+
+-------------------------------------------------------------------------------------------------------------
+WHILE
+        let seatsLeft = 10;  //posti a sedere
+        let passengersStillToBoard = 8; //numero di passegeri
+        let passengersBoarded = 0;      //passeggeri a bordo
+
+        while (seatsLeft > 0 && passengersStillToBoard > 0) {
+            passengersBoarded++; // un passager embarque
+            passengersStillToBoard--; // donc il y a un passager de moins à embarquer
+            seatsLeft--; // et un siège de moins
+        }
+
+        console.log(passengersBoarded); // imprime 8, car il y a 8 passagers pour 10 sièges
