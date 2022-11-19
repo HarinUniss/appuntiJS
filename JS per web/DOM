@@ -1,0 +1,61 @@
+Il DOM, acronimo diDocument Object Model,
+
+il DOM è una rappresentazione di una pagina HTML
+permette di accedere ai diversi elementi della pagina grazie al linguaggio JavaScript.
+
+    Possiamo vedere il DOM come un albero con degli elementi che a sua volta ne possono contenere altri
+
+    nel DOM si inizia sempre con un tag <html>
+    che ha come figli <head>  e  <body>
+
+    Con un'interfaccia di programmazione che ci consente di navigare nel DOM,
+    saremo in grado diinteragirecon esso. Queste interazioni includono:
+
+            Modifica del contenuto di un elemento specifico;
+
+            Cambiare lo stile di un elemento;
+
+            Creazione o eliminazione di elementi;
+
+            Interazione con gli utenti, al fine di individuare i clic su un elemento o di recuperare il loro nome in un modulo;
+
+            And so on.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
