@@ -1,0 +1,141 @@
+
+Utilizzo dell object document
+
+    document.getElementById()
+
+               permette di trovare un elemento preciso grazie al suo ID
+
+               getElementById(<id>)
+                    prende come parametro l'ID e fornisce l'elemento se è stato trovato
+
+                        esempoi:
+                            Se voglio trovare l'elemento:
+                                <p id="my-anchor">My content</p>
+
+                            mi basta scrivere:
+                                const myAnchor = document.getElementById('my-anchor');
+
+
+    document.getElementsByClassName()
+               Questo metodo funziona della stessa maniera con la differenza che utilizza una CLASSE
+               Fornira la LISTA delgi elementi della classe corrispondente
+
+               esempio
+               ho questi elementi con classe content
+
+                    <div>
+                        <div class="content">Contenu 1</div>
+                        <div class="content">Contenu 2</div>
+                        <div class="content">Contenu 3</div>
+                    </div>
+
+
+                con il codice seguente estraggo gli elementi e salvo il primo elemento in firstContent
+
+                const contents = document.getElementsByClassName('content');
+                const firstContent = contents[0];
+
+
+    document.getElementsByTagName()
+                Con questo metodo ricerco tutti gli elementi aventi un Tag preciso
+                    il risultato è fornito come LISTA di elementi
+
+                    esempio:
+
+                            <div>
+                                <article>Contenu 1</article>
+                                <article>Contenu 2</article>
+                                <article>Contenu 3</article>
+                            </div>
+
+                            const articles = document.getElementsByTagName('article');
+                            const thirdArticle = articles[2];   //terzo articolo
+
+
+    document.querySelector()
+                Metodo piu potente e complesso che permette di individuare
+                UN SOTTO LELEMENTO di ID che contengono elementi con classi che contengono altri elementi e magari altre classi @.@ (un po di confusione)
+
+                esempio:
+                    document.querySelector("#myId p.article > a")
+
+                    cercherà l'ID myid
+                    cercherà al suo interni i paragrafi <p>
+                    aventi la classe article
+                    per poi recuperare il collegamento di <a> ( da notare il > )
+
+
+                    DA NOTARE NCHE FORNISCE SOLO IL PRIMO ELEMENTO TROVATO E NON UNA LISTA!!!!
+
+
+                NB in questo caso:
+
+                        <div id="myId">
+                            <p>
+                                <span><a href="#">Lien 1</a></span>
+                                <a href="#">Lien 2</a>
+                                <span><a href="#">Lien 3</a></span>
+                            </p>
+                            <p class="article">
+                                <span><a href="#">Lien 4</a></span>
+                                <span><a href="#">Lien 5</a></span>
+                                <a href="#">Lien 6</a>
+                            </p>
+                            <p>
+                                <a href="#">Lien 7</a>
+                                <span><a href="#">Lien 8</a></span>
+                                <span><a href="#">Lien 9</a></span>
+                            </p>
+                        </div>
+
+                        const elt = document.querySelector("#myId p.article > a");
+
+                        RITORNERA SOLO IL COLLEGAMENTO 6  perche gli altri <a> sono dentro a uno <span>
+
+
+-------------------------------------------------------------------------------------------------
+Utilizzo del Object element
+
+        OGNI ELEMENTO ÈUN OGGETTO JAVASSRIPT CON LE PROPRIE PROPRIETÀ E LE SUE FUNZIONI
+
+
+        element.children
+            ritorna la lista dei figli dell'elemento
+
+        element.parentElement
+            ritorna l'elemento padre dell'elemento
+
+        element.nextElementSibling
+        element.previousElementSibling
+            queste proprietà ci permettono di spostarci verso l'elemento successivo o precedente
+            che si trova allo stesso l'ivello dell' elemento indicato
+
+
+        ESEMPIO
+
+            <div id="parent">
+                <div id="previous">Précédent</div>
+                <div id="main">
+                    <p>Paragraphe 1</p>
+                    <p>Paragraphe 2</p>
+                </div>
+                <div id="next">Suivant</div>
+            </div>
+
+
+            const elt = document.getElementById('main');   //salvo l'elemento div contenete l'ID #main
+
+
+        //successivamente se all'elemento elt applico:
+
+                elt.children    ritornera gli elementi di tipo <p> che sono figli del ID #main
+
+                elt.parentElement   ci ritornerà l'elemento <div> che ha la classe parent
+
+                elt.nextElementSibling      ci ritornerà l'elemento <div> che ha l'id #next
+
+                elt.previousElementSibling      ci  ritornerà l'elemento <div> che ha l'id #previous
+
+
+
+
