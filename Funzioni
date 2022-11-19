@@ -1,0 +1,92 @@
+// Definiamo la funzione
+
+        function afficherDeuxValeurs(valeur1, valeur2) {
+                console.log('Première valeur:' + valeur1);
+                console.log('Deuxième valeur:' + valeur2);
+        }
+
+// esseguiamo la funzione
+        afficherDeuxValeurs(12, 'Bonjour');
+
+// otteniamo nella Console
+// > Première valeur:12
+// > Deuxième valeur:Bonjour
+
+
+
+METODI DI ISTANZA
+
+    funzioni interne a una classe che agiscono dentro l'istanza della classe che le contiene
+
+
+    class BankAccount {
+        constructor(owner, balance) {
+            this.owner = owner;
+            this.balance = balance;
+        }
+
+        showBalance() {
+            console.log("Solde: " + this.balance + " EUR");
+        }
+
+        deposit(amount) {
+            console.log("Dépôt de " + amount + " EUR");
+            this.balance += amount;
+            this.showBalance();
+        }
+
+        withdraw(amount) {
+            if (amount > this.balance) {
+                     console.log("Retrait refusé !");
+            } else {
+                console.log("Retrait de " + amount + " EUR");
+                this.balance -= amount;
+                this.showBalance();
+            }
+        }
+    }
+
+---------------------------------------------------------------------------------
+METODI STATICI
+
+     il metodostatico. È diverso dai metodi di istanza perché NON è
+     associato a una particolare istanza di una classe, ma alla classe stessa.
+
+    Ad esempio, in JavaScript, l'oggetto contiene molti metodi utili:Math
+
+        const randomNumber = Math.random(); // crée un nombre aléatoire sur l'intervalle [0, 1]
+
+        const roundMeDown = Math.floor(495.966); // arrondit vers le bas à l'entier le plus proche, renvoie 495
+
+    Non è necessario creare da un'istanza dell'oggetto per utilizzare questi metodi.
+    Basta chiamarli sull'oggetto globale.new Math.
+
+
+Puoi creare i tuoi metodi statici con la parola chiave!static
+
+Si consideri la classe seguente:
+
+        class BePolite {
+
+            static sayHello() {
+                console.log("Hello!");
+            }
+
+            static sayHelloTo(name) {
+                console.log("Hello " + name + "!");
+            }
+
+            static add(firstNumber, secondNumber) {
+                return firstNumber + secondNumber;
+            }
+        }
+
+        BePolite.sayHello(); // imprime "Hello!""
+
+        BePolite.sayHelloTo("Will"); // imprime "Hello Will!""
+
+        const sum = BePolite.add(2, 3); // sum = 5
+
+
+Non è necessario aggiungerne un constructor alla classe,
+perché non ne creerai un'istanza. Hai un metodo che
