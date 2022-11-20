@@ -1,0 +1,147 @@
+MODIFICARE IL CONTENUTO DI UN ELEMENTO
+
+        .textContent
+            Permette di inserire del testo in un elemento che NON verrà interpretato come HTML
+            Se c'era del testo questo verrà rimpiazzato
+
+        .innerHTML
+            Permette di inserire del testo in un elemento che verrà interpretato come HTML
+            Se c'era del testo questo verrà rimpiazzato
+
+                <div id="main">
+                    <ul>
+                        <li>Elément 1</li>
+                        <li>Elément 2</li>
+                    </ul>
+                    <p>ciao</p>
+                </div>
+
+
+                <script>
+                    let elemento = document.querySelector("#main li")
+                    elemento.innerHTML = "<li> <strong>Elément 7 </strong> </li>"; //element 1 verrà rimpiazzato da Element 7
+
+                    let prova = document.querySelector("#main p")
+                    prova.textContent = "Scrivo del testo nel paragrafo p"
+                </script>
+
+---------------------------------------------------------------------------------------------------------------------
+
+MODIFICARE DELLE CLASSI
+
+        .classList
+
+            .classList.add
+                elemento.classList.add("nouvelleClasse");    // Aggiunge la classe nouvelleClasse all'elemento
+
+            .classList.remove
+                elemento.classList.remove("nouvelleClasse"); // Elimina la classe nouvelleClasse dall'elemento
+
+            .classList.contains
+                elemento.classList.contains("nouvelleClasse");   // Verifica se contiene la classe nouvelleClasse ritorna true o false
+
+            .classList.replace
+                elemento.classList.replace("oldClass", "newClass"): // sostituisce oldClass con newClass se le oldClass è presente mell'elemento
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+CAMBIARE LO STILE DI UN ELEMENTO
+
+        .style
+
+            .style.color
+                elt.style.color = "#fff";      // Cambia il colore del testo dell'elemento in bianco
+
+            .style.backgroundColor
+                elt.style.backgroundColor = "#000"; // Cabia il colore di fondo dell'elemento in nero
+
+            .style.fontWeight
+                elt.style.fontWeight = "bold"; // Mette il testo del l'elemento in grassetto
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+MODIFICARE GLI ATTRIBUTI DI UN ELEMENTO
+
+        .setAttri
+
+            .setAttribute
+                 elt.setAttribute("type", "password");   // Cambia il tipo di input in un tipo password
+
+                 elt.setAttribute("name", "my-password");    // Cambia il nome dell'input in my-password
+
+            .getAttribut
+                 elt.getAttribute("name");               // Retourne my-password
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+CREARE DEI NUOVI ELEMENTI
+
+
+        document.createElement
+
+            const newElt = document.createElement("div");
+
+            Un elemento creato con questa funzione non fa ancora parte del documento,
+            quindi non lo vedrai sulla tua pagina.
+            Per vederlo, dovrai prima aggiungerlo come figlio a un elemento.
+
+
+        AGGIUNGERE FIGLI
+
+            Ci sono diversi modi per aggiungere un elemento alla nostra pagina. Il più noto è .appendChild
+            Questa funzione aggiunge un elemento all'elenco dei figli dell'elemento padre da cui viene chiamata la funzione.
+
+
+                .appendChild
+
+                    esempio:
+
+                        const newElt = document.createElement("div"); //creo l'elemento
+                        let elt = document.getElementById("main");    //individuo l'elemento con l'ID main
+
+                        elt.appendChild(newElt);    //aggiungi un elemento figlio all'elemento che ha l'ID main
+
+
+-------------------------------------------------------------------------------------------------------------------------
+
+ELIMINARE E E RIMPIAZZARE DEGLI ELEMENTI
+
+
+        .removeChild
+            parentNode.removeChild(<element>)   //prende in parametro l'elemento da eliminare dal elemento padre e ritorna l'elemento eliminato
+
+        .replaceChild
+            parentNode.replaceChild(<newElement>, <oldElement>) //Prende il nuovo elemento e l'elemento da sostituire come parametri e restituisce l'elemento sostituito.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
