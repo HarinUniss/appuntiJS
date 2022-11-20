@@ -1,0 +1,152 @@
+
+COSA È UN EVENTO?
+
+    E una reazione ad un azzione emessa dall'utilizzatore , come :
+
+            clic su un bottone
+            spuntare una casella in un formulario
+
+    Un Evento in JS e rappresentato da:
+
+            NOME ( click ,  mousemove ...)
+            FUNZIONE che chiama l'evento ( callback )
+
+    GLI EVENTI SI PROPAGANO
+        ovvero dal elemento figlio si propaga a quello padre fino ad arrivare al elemento radice
+
+
+    callback
+        È la funzione che verrà chiamata ogni volta che l'evento che desideriamo seguire è eseguio
+
+
+
+
+REAGIRE AL CLICK DI UN ELEMENTO
+
+        .addEventListener()
+            Questa funzionepermette di ascoltare tutti i tipi di eventi (non solo i click)
+
+
+            .addEventListener(<event>, <callback>)
+                prendecome parametro:
+                        NOME dell'evento che che si vuole ascoltare
+                        FUNZIONE da chiamare quando l'evento viene eseguito
+
+
+
+
+            const elt = document.getElementById('mon-lien');    // Recuperiamo l'elemento sul quale efettueremo il clik
+            elt.addEventListener('click', function() {          // Ascoltiamo l'evento click e chiamiamo la funzione function()
+                elt.innerHTML = "C'est cliqué !";               // Cambiamo il contenuto dell'elemento per indicare che e stato cliccato "C'est cliqué !"
+            });
+
+
+--------------------------------------------
+SE UN ELEMENTO AL CLICK HA UN EVENTO BASE CHE NON VOGLIO FAR ESEGUIRE , COME AD ESEMPIO L'APERTURA DI UNA PAGINA
+
+        .preventDefault()
+            si richiede al gestore degli eventi di non eseguire il comportamento di DEFAULT dell'elemento indicato
+
+
+
+        const elt = document.getElementById('mon-lien');    // Recuperiamo l'elemento sul quale efettueremo il clik
+        elt.addEventListener('click', function(event) {     // Ascoltiamo l'evento click, function(event) prende un parametro che abbiamo chiamato event
+            event.preventDefault();                         // Utilizziamo la funzione preventDefault del nostro oggetto event per impedire il comportamento di default di quel evento una volta cliccato
+        });
+
+--------------------------------------
+IMPEDIRE PROPAGAZIONE EVENTO
+
+        .stopPropagation()
+            è una funzione dell'oggetto che la nostra funzione function() riceve in parametro
+            permette di impedire la propagazione del evento verso suo padre
+
+            se abbiamo un elemento padre che ha un evento per defauult se viene cliccato ma
+            noi vogliamo solo l'effetto del figlio e non quello del padre , poissiamo scrivere:
+
+
+                const elementInterieur = document.getElementById('bottone'); // Recuperiamo l'elementoInterno sul quale efettueremo il clik
+                elementInterieur.addEventListener('click', function(event) {  //Ascoltiamo l'evento click, function(event) prende un parametro che abbiamo chiamato event
+                    event.stopPropagation();                                   //non consento la propagazione dell'evento even
+                    elementAvecMessage.innerHTML = "Message de l'élément intérieur";    //segnalo che l'evento è solo interno
+                });
+
+
+            esempio:
+
+
+            <html>
+              <head>
+                <link rel="stylesheet" type="text/css" href="base.css">
+              </head>
+              <body>
+                <article id="parent">
+                  <a class="link" id="child" href="#">Cliquez ici</a>
+                  <p>Battle d'événement !</p>
+                  Parent : <span id="parent-count">0</span>
+                  Enfant : <span id="child-count">0</span>
+                </article>
+
+                <script type="text/javascript" src="index.js"></script>
+              </body>
+            </html>
+
+            <script>
+                let parentClicks = 0;
+                let childClicks = 0;
+
+                document
+                  .getElementById("parent")                 // Recuperiamo l'elemento padre sul quale efettueremo il clik
+                  .addEventListener("click", function() {   //Ascoltiamo l'evento click
+                  document                                  // incremento il contatore quando ricevo il click
+                    .getElementById("parent-count")
+                    .innerText = (++parentClicks) + '';
+
+                });
+
+                document
+                  .getElementById("child")                   // Recuperiamo l'elemento figlio sul quale efettueremo il clik
+                  .addEventListener("click", function(e) {   //Ascoltiamo l'evento click
+                  e.stopPropagation();  //indico che non lo voglio propagare
+
+                  document              // incremento il contatore quando ricevo il click
+                    .getElementById("child-count")
+                    .innerText = (++childClicks) + '';
+                });
+
+            </script>
+
+
+            <css>
+
+                    body {
+                      padding: 50px;
+                    }
+
+                    article {
+                      margin: auto;
+                      width: 300px;
+                      padding: 20px;
+                      border: 1px solid black;
+                    }
+
+                    .link {
+                      float: right;
+                      margin-left: 30px;
+                    }
+
+                    span {
+                      margin: 10px;
+                    }
+
+            </css>
+
+
+
+
+
+
+
+
+
+
