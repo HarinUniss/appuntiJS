@@ -1,0 +1,36 @@
+
+Ogni evento è figlio della classe Event
+
+    Tutte le sotto classi erediteranno dunque i metodi della classe padre Event
+
+        preventDefault()
+            impedisce l'esecuzione del comportamento dell'elemento che riceve l'evento
+
+        stopPropagation()
+            impedisce la propagazione verso altri elementi
+
+
+
+
+-------------------------------------------------------------------------------
+RILEVARE I MOVIMENTI DEL MOUSE
+
+    si rileva il ciaooooooneee
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
